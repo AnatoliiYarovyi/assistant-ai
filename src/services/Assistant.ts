@@ -4,8 +4,6 @@ import OpenAI from 'openai';
 import LoggerService from './Logger';
 
 export default class AssistantService {
-  private tryCatchApiKey: string = process.env.API_KEY_TRY_CATCH_CLOUD;
-  private stage: string = process.env.STAGE;
   private openaiApiKey: string = process.env.OPENAI_API_KEY;
   private assistantId: string = process.env.ASSISTANT_ID;
   private openai: OpenAI;

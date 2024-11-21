@@ -5,10 +5,9 @@ import { CloudflareErrorUtility } from 'try-catch-cloud/cloudflare-workers';
 export default class LoggerService {
   private errorUtility: CloudflareErrorUtility;
   private tryCatchApiKey: string = process.env.API_KEY_TRY_CATCH_CLOUD;
-  private stage: string = process.env.STAGE;
 
   constructor() {
-    this.errorUtility = new CloudflareErrorUtility(`ptrk-${this.stage}`, this.tryCatchApiKey);
+    this.errorUtility = new CloudflareErrorUtility(`assistant-dev`, this.tryCatchApiKey);
   }
 
   public async log(method: string, error: unknown, message: string) {
