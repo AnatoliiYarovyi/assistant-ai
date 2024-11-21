@@ -1,2 +1,2 @@
-# asistent-ai
-asistent-ai
+# assistant-ai
+assistant-ai

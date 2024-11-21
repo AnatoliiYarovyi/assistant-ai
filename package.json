@@ -1,0 +1,34 @@
+{
+  "name": "assistant-ai",
+  "version": "1.0.0",
+  "description": "assistant-ai",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node ./dist",
+    "dev": "nodemon",
+    "build": "esbuild ./src/index.ts --bundle --platform=node --target=node20 --outfile=./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "openai": "^4.73.0",
+    "try-catch-cloud": "^1.0.54",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.1",
+    "esbuild": "^0.24.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}
