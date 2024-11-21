@@ -8,6 +8,7 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
     PORT: string;
+    TRY_CATCH_NAME: string;
     API_KEY_TRY_CATCH_CLOUD: string;
     OPENAI_API_KEY: string;
     ASSISTANT_ID: string;

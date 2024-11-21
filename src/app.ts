@@ -17,7 +17,7 @@ export class App {
   ) {
     this.app = express();
     this.tryCatch = setupTryCatch({
-      projectName: 'assistant-dev',
+      projectName: process.env.TRY_CATCH_NAME,
       apiKey: process.env.API_KEY_TRY_CATCH_CLOUD,
     });
     this.app.use(this.tryCatch.initialize);
