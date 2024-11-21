@@ -11,7 +11,6 @@ import AssistantService from '@/services/Assistant';
 export class AssistantController extends Controller {
   constructor(
     readonly logger: LoggerService,
-    readonly assistantService: AssistantService,
     readonly pdfService: PdfService,
   ) {
     super('/assistant');
@@ -34,6 +33,7 @@ export class AssistantController extends Controller {
     { generatedPdfId?: string; beUrl?: string; question?: string },
     {}
   > = async (req, res) => {
+    const assistantService = new AssistantService(this.logger);
     const { generatedPdfId, beUrl, question } = req.body;
     if (!generatedPdfId || !beUrl || !question) {
       res.status(400).json(errorResponse(400, 'generatedPdfId, beUrl and question required'));
@@ -42,7 +42,7 @@ export class AssistantController extends Controller {
 
     res.json('ok-test');
 
-    const assistantAnswer = await this.assistantService.executeAssistantWorkflow(question);
+    const assistantAnswer = await assistantService.executeAssistantWorkflow(question);
 
     if (!assistantAnswer) {
       await this.logger.log('mcq', '', `Assistant answer is empty - ${assistantAnswer}`);

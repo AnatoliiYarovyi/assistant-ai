@@ -121,6 +121,8 @@ export default class AssistantService {
         await new Promise(resolve => setTimeout(resolve, 3000));
         const runStatus = await this.openai.beta.threads.runs.retrieve(this.threadId, this.run.id);
 
+        console.log('this.run.id: ', this.run.id);
+
         if (runStatus.status === 'completed') {
           isCompleted = true;
 
