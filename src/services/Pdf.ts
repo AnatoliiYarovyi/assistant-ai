@@ -3,12 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import LoggerService from './Logger';
 
 export default class PdfService {
+  private pdfGeneratorUrl = process.env.PDF_GENERATOR_URL;
+
   constructor(readonly logger: LoggerService) {}
 
   public async generatePdf(
     assistantAnswer: string,
   ): Promise<{ fileName: string; fileEntry: ArrayBuffer } | undefined> {
-    const response = await fetch(`${process.env.PDF_GENERATOR_URL}/pdf/generate`, {
+    const response = await fetch(`${this.pdfGeneratorUrl}/pdf/generate`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
