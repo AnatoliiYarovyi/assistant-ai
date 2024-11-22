@@ -8,16 +8,13 @@ export default class PdfService {
   public async generatePdf(
     assistantAnswer: string,
   ): Promise<{ fileName: string; fileEntry: ArrayBuffer } | undefined> {
-    const response = await fetch(
-      `https://pdf-generator-production-5e36.up.railway.app/pdf/generate`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ template: assistantAnswer }),
+    const response = await fetch(`${process.env.PDF_GENERATOR_URL}/pdf/generate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({ template: assistantAnswer }),
+    });
 
     if (!response.ok) {
       await this.logger.log('generatePdf', '', `Pdf generator error ${response.statusText}`);

@@ -10,6 +10,7 @@ declare namespace NodeJS {
     PORT: string;
     TRY_CATCH_NAME: string;
     API_KEY_TRY_CATCH_CLOUD: string;
+    PDF_GENERATOR_URL: string;
     OPENAI_API_KEY: string;
     ASSISTANT_ID: string;
   }
